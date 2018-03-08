@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    </meta>
+    <title>Title</title>
+</head>
+<body>
+<table>
+    <tr>
+        <td>编号</td>
+        <td>姓名</td>
+        <td>年级</td>
+    </tr>
+    <tr th:each="student:${students}">
+        <td th:text="${student.uid}"></td>
+        <td th:text="${student.username}"></td>
+        <td th:text="${student.grade}"></td>
+        <td><a href="/del" th:href="@{/del/(id=${student.uid})}">删除</a></td>
+        <td><a href="/toUpdate" th:href="@{/toUpdate/(id=${student.uid})}">修改</a></td>
+    </tr>
+</table>
+<a href="/toAdd" th:href="@{/toAdd}">添加</a>
+</body>
+</html>
